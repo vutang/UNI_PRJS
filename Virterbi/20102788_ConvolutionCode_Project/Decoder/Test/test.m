@@ -1,0 +1,15 @@
+% N = 8;
+input_bits = [1 1 1 1 1 1 1 1];
+%input_bits = rand(1, n);
+%input_bits = rand(1,n);
+%	input_bits(input_bits >= 0.5) = 1;
+% 	input_bits(input_bits < 0.5) = 0;
+% input_bits;
+%fileid = fopen('input_bits.txt','w');
+% fprintf(fileID,'%d\t',input_bits);
+% fclose(fileID);
+G1 = 7;
+G2 = 5;
+trellis = poly2trellis(3, [G1 G2]);
+tblen = 15;
+encoded_bits = convenc([input_bits 0 0], trellis);
