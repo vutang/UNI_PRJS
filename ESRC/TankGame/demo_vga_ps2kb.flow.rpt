@@ -1,0 +1,192 @@
+Flow report for demo_vga_ps2kb
+Fri Aug 09 23:13:32 2013
+Quartus II 64-Bit Version 10.1 Build 197 01/19/2011 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------+
+; Flow Summary                                                                        ;
++------------------------------------+------------------------------------------------+
+; Flow Status                        ; Analyzed - Fri Aug 09 23:13:32 2013            ;
+; Quartus II 64-Bit Version          ; 10.1 Build 197 01/19/2011 SP 1 SJ Full Version ;
+; Revision Name                      ; demo_vga_ps2kb                                 ;
+; Top-level Entity Name              ; tank_game                                      ;
+; Family                             ; Cyclone II                                     ;
+; Device                             ; EP2C20F484C7                                   ;
+; Timing Models                      ; Final                                          ;
+; Total logic elements               ; 15,457 / 18,752 ( 82 % )                       ;
+;     Total combinational functions  ; 15,352 / 18,752 ( 82 % )                       ;
+;     Dedicated logic registers      ; 1,851 / 18,752 ( 10 % )                        ;
+; Total registers                    ; 1851                                           ;
+; Total pins                         ; 48 / 315 ( 15 % )                              ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 196,672 / 239,616 ( 82 % )                     ;
+; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                 ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                                 ;
++------------------------------------+------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 08/09/2013 23:08:00 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; demo_vga_ps2kb      ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                        ;
++-------------------------------------------------+---------------------------------------+--------------------+-------------+------------+
+; Assignment Name                                 ; Value                                 ; Default Value      ; Entity Name ; Section Id ;
++-------------------------------------------------+---------------------------------------+--------------------+-------------+------------+
+; ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP             ; On                                    ; Off                ; --          ; --         ;
+; ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION              ; On                                    ; Off                ; --          ; --         ;
+; ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION              ; On                                    ; Off                ; --          ; --         ;
+; ALLOW_ANY_SHIFT_REGISTER_SIZE_FOR_RECOGNITION   ; On                                    ; Off                ; --          ; --         ;
+; AUTO_PACKED_REGISTERS_STRATIXII                 ; Normal                                ; Auto               ; --          ; --         ;
+; AUTO_RAM_RECOGNITION                            ; Off                                   ; On                 ; --          ; --         ;
+; AUTO_SHIFT_REGISTER_RECOGNITION                 ; Off                                   ; Auto               ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                           ; 28602123223814.137606447701044        ; --                 ; --          ; --         ;
+; CYCLONEII_OPTIMIZATION_TECHNIQUE                ; Area                                  ; Balanced           ; --          ; --         ;
+; ENABLE_DRC_SETTINGS                             ; On                                    ; Off                ; --          ; --         ;
+; FITTER_AGGRESSIVE_ROUTABILITY_OPTIMIZATION      ; Always                                ; Automatically      ; --          ; --         ;
+; FITTER_EFFORT                                   ; Standard Fit                          ; Auto Fit           ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 2-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 2-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 2-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 2-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_NAME                                    ; ROM: 1-PORT                           ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; IP_TOOL_VERSION                                 ; 10.1                                  ; --                 ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP                          ; 85                                    ; --                 ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP                          ; 0                                     ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; brick_rom.cmp                         ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; grass_rom.cmp                         ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; stone_rom.cmp                         ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; iron_rom.cmp                          ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; water_rom.cmp                         ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; b_center_rom.cmp                      ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; rocket_rom.cmp                        ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; star_rom.cmp                          ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; tank_lr_rom.cmp                       ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; tank_ud_rom.cmp                       ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; ai_ud_rom.cmp                         ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; ai_lf_rom.cmp                         ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; life_rom.cmp                          ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; fz_rom.cmp                            ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; buzz_rom.cmp                          ; --                 ; --          ; --         ;
+; MISC_FILE                                       ; boss_rom.cmp                          ; --                 ; --          ; --         ;
+; MUX_RESTRUCTURE                                 ; On                                    ; Auto               ; --          ; --         ;
+; OPTIMIZE_TIMING                                 ; Off                                   ; Normal compilation ; --          ; --         ;
+; PARTITION_COLOR                                 ; 16764057                              ; --                 ; tank_game   ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL             ; PLACEMENT_AND_ROUTING                 ; --                 ; tank_game   ; Top        ;
+; PARTITION_NETLIST_TYPE                          ; SOURCE                                ; --                 ; tank_game   ; Top        ;
+; PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA         ; On                                    ; Off                ; --          ; --         ;
+; PHYSICAL_SYNTHESIS_MAP_LOGIC_TO_MEMORY_FOR_AREA ; On                                    ; Off                ; --          ; --         ;
+; POWER_BOARD_THERMAL_MODEL                       ; None (CONSERVATIVE)                   ; --                 ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION                   ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --                 ; --          ; --         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS                    ; On                                    ; Off                ; --          ; --         ;
+; ROUTER_TIMING_OPTIMIZATION_LEVEL                ; MAXIMUM                               ; Normal             ; --          ; --         ;
+; SMART_RECOMPILE                                 ; On                                    ; Off                ; --          ; --         ;
+; SYNTH_TIMING_DRIVEN_SYNTHESIS                   ; On                                    ; Off                ; --          ; --         ;
+; TOP_LEVEL_ENTITY                                ; tank_game                             ; demo_vga_ps2kb     ; --          ; --         ;
++-------------------------------------------------+---------------------------------------+--------------------+-------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:03:57     ; 1.0                     ; 543 MB              ; 00:03:51                           ;
+; Fitter                    ; 00:00:48     ; 1.7                     ; 554 MB              ; 00:01:08                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 357 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:23     ; 1.6                     ; 486 MB              ; 00:00:26                           ;
+; Design Assistant          ; 00:00:07     ; 1.0                     ; 406 MB              ; 00:00:06                           ;
+; Total                     ; 00:05:18     ; --                      ; --                  ; 00:05:34                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; VuTang-PC        ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; VuTang-PC        ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; VuTang-PC        ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; VuTang-PC        ; Windows 7 ; 6.1        ; x86_64         ;
+; Design Assistant          ; VuTang-PC        ; Windows 7 ; 6.1        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off demo_vga_ps2kb -c demo_vga_ps2kb
+quartus_fit --read_settings_files=off --write_settings_files=off demo_vga_ps2kb -c demo_vga_ps2kb
+quartus_asm --read_settings_files=off --write_settings_files=off demo_vga_ps2kb -c demo_vga_ps2kb
+quartus_sta demo_vga_ps2kb -c demo_vga_ps2kb
+quartus_drc --read_settings_files=off --write_settings_files=off demo_vga_ps2kb -c demo_vga_ps2kb
+
+
+

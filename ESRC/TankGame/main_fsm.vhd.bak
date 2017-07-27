@@ -1,0 +1,66 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY Main_FSM IS
+	PORT( clk25, reset, vic							: IN STD_LOGIC;	
+			start_rgb, maps_rgb	: IN std_logic_vector(11 downto 0);
+			rgb			    						: OUT STD_LOGIC_VECTOR( 11 DOWNTO 0 ));
+END Main_FSM;
+
+architecture b of Main_FSM is
+	Type state is (start, turn, maps);
+--current and next state
+	signal cst, nst: state;
+begin
+	process(clk25, reset)
+	begin
+		if rising_edge(clk25) then
+			if reset = '1' then cst <= maps;
+				else 			cst <= nst;
+			end if;
+		end if;
+	end process;
+		
+	process(cst, vic, start_rgb, maps_rgb)
+	variable	count: integer:=0;
+	begin
+	nst <= cst;
+		case cst is
+			when maps	=> 	
+								count := 0;
+								rgb <= maps_rgb;
+								if(vic='1') then 
+									nst <= turn;
+								else 
+									nst <= maps_rgb;
+								end if;
+--								if rising_edge(clk25) then
+--									count := count + 1;
+--								end if;
+--								if count = 10000000 then	
+--									nst <= intro;
+--								else 	
+--									nst <= start;
+--								end if;			
+								-- if enter = '1' then nst <= turn;
+									-- else nst <= start;
+									-- end if;
+			when turn		=>	rgb <= (others => '0');
+									if rising_edge(clk25) then
+										count := count + 1;
+									end if;
+									if count = 25000000 then	nst <= start;
+									else 	nst <= turn;
+									end if;
+			-- when intro		=>	count := 0;
+								-- rgb <= intro_rgb;
+									-- if enter = '1' then nst <= maps;
+									-- else nst <= intro;
+									-- end if;
+			when start 		=> 	count := 0;
+								rgb <= start_rgb;	
+		end case;
+	end process;
+end b;

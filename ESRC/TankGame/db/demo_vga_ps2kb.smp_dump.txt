@@ -1,0 +1,28 @@
+
+State Machine - |tank_game|Main_FSM:main_fsm|cst
+Name cst.ready cst.gameover cst.maps cst.victory cst.intro 
+cst.intro 0 0 0 0 0 
+cst.victory 0 0 0 1 1 
+cst.maps 0 0 1 0 1 
+cst.gameover 0 1 0 0 1 
+cst.ready 1 0 0 0 1 
+
+State Machine - |tank_game|maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|mSetup_ST
+Name mSetup_ST.0000 mSetup_ST.0010 mSetup_ST.0001 
+mSetup_ST.0000 0 0 0 
+mSetup_ST.0001 1 0 1 
+mSetup_ST.0010 1 1 0 
+
+State Machine - |tank_game|maps:maps_com|item_fsm:item|nst
+Name nst.item_off nst.item_wait nst.item_on nst.ready 
+nst.ready 0 0 0 0 
+nst.item_on 0 0 1 1 
+nst.item_wait 0 1 0 1 
+nst.item_off 1 0 0 1 
+
+State Machine - |tank_game|maps:maps_com|item_fsm:item|cst
+Name cst.item_off cst.item_wait cst.item_on cst.ready 
+cst.ready 0 0 0 0 
+cst.item_on 0 0 1 1 
+cst.item_wait 0 1 0 1 
+cst.item_off 1 0 0 1 

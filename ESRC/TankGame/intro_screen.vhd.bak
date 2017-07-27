@@ -1,0 +1,215 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity intro_screen is
+port
+	(
+		clk, reset					:	in	std_logic;
+		video_on					:	in	std_logic;
+		p_x, p_y					: 	in	std_logic_vector(9 downto 0);				
+		col             			: 	in 	integer range 0 to 31;
+		row             			: 	in 	integer range 0 to 23;
+		btn_up, btn_down	:	in	std_logic;		
+		intro_screen_rgb			:	out	std_logic_vector(11 downto 0)
+--		intro_screen_on1			:	out std_logic;
+--		intro_screen_on2			:	out std_logic		
+	);
+end intro_screen;
+
+architecture structural of intro_screen is
+	type map_type is array (0 to 23, 0 to 31) of integer range 0 to 3;
+	constant intro_map	: map_type :=
+			
+		(	(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),
+			(1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1),
+			(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),
+			(1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+			(1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1),
+			(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)	);
+			
+	signal 		address						:	std_logic_vector(8 downto 0);
+	signal 		font_row, font_col			: 	std_logic_vector(2 downto 0);
+	signal 		font_row1, font_col1			: 	std_logic_vector(2 downto 0);
+	signal 		font_row2, font_col2			: 	std_logic_vector(2 downto 0);
+	signal 		font_row3, font_col3			: 	std_logic_vector(2 downto 0);
+	signal 		char_out, char1_on, char2_on, char3_on			: 	std_logic;
+	signal 		brick_rgb, grass_rgb				: std_logic_vector(11 downto 0);
+	signal		character_adr, character_adr1, character_adr2, character_adr3: std_logic_vector(7 downto 0);
+	signal		s1							: std_logic_vector(1 downto 0);
+		
+begin
+	brick_rom_unit: entity work.brick_rom
+		port map
+		(address, clk, brick_rgb);
+		
+	grass_rom_unit: entity work.grass_rom
+		port map
+		(address, clk, grass_rgb);
+		
+	char_ROM_unit: entity work.char_rom
+		port map
+		(character_adr, font_row, font_col, char_out);	
+		
+	address <= conv_std_logic_vector((conv_integer(p_y) - row*20)*20 + (conv_integer(p_x) - col*20),9);	
+	character_adr1 <= 	"01010100" when p_x(9 downto 5)= "00101" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--T
+						"01000001" when p_x(9 downto 5)= "00110" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--A
+						"01001110" when p_x(9 downto 5)= "00111" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--N
+						"01001011" when p_x(9 downto 5)= "01000" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--K
+						"00000000" when p_x(9 downto 5)= "01001" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else-- 
+						"01000111" when p_x(9 downto 5)= "01010" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--G
+						"01000001" when p_x(9 downto 5)= "01011" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--A
+						"01001101" when p_x(9 downto 5)= "01100" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--M
+						"01000101" when p_x(9 downto 5)= "01101" and p_y(9 downto 7)= "000" and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 ) else--E
+						"00000000";
+	font_col1 <= p_x(4 downto 2);
+	font_row1 <= "000"	when (p_y(6 downto 0) >= 44 and p_y(6 downto 0)< 48) else
+				"001"   when (p_y(6 downto 0) >= 48 and p_y(6 downto 0)< 52) else
+				"010"	when (p_y(6 downto 0) >= 52 and p_y(6 downto 0)< 56) else
+				"011"	when (p_y(6 downto 0) >= 56 and p_y(6 downto 0)< 60) else
+				"100"	when (p_y(6 downto 0) >= 60 and p_y(6 downto 0)< 64) else
+				"101"	when (p_y(6 downto 0) >= 64 and p_y(6 downto 0)< 68) else
+				"110"	when (p_y(6 downto 0) >= 68 and p_y(6 downto 0)< 72) else
+				"111"	when (p_y(6 downto 0) >= 72 and p_y(6 downto 0)< 76) else
+				"---";	
+	char1_on <= '1' when (p_x(9 downto 5)>= 5 and p_x(9 downto 5)<= 13) and(p_y(9 downto 7)= "000" 
+					and (p_y(6 downto 0)>= 44 and p_y(6 downto 0)<=76 )) else 
+				'0';
+				
+	-- character_adr2 <= 	
+						-- "00110001" when (p_x(9 downto 0) >= 240 and p_x(9 downto 0) < 256)
+								-- and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--1
+						-- "00000000" when (p_x(9 downto 0) >= 256 and p_x(9 downto 0) < 272) 
+								-- and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--
+						-- "01010000" when (p_x(9 downto 0) >= 272 and p_x(9 downto 0) < 288) 
+								-- and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--P
+						-- "01101100" when (p_x(9 downto 0) >= 288 and p_x(9 downto 0) < 304) 
+								-- and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--l
+						-- "01100001" when (p_x(9 downto 0) >= 304 and p_x(9 downto 0) < 320) 
+								-- and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--a
+						-- "01111001" when (p_x(9 downto 0) >= 320 and p_x(9 downto 0) < 336) 
+								-- and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--y
+						-- "01100101" when (p_x(9 downto 0) >= 336 and p_x(9 downto 0) < 352) 
+								-- and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--e
+						-- "01110010" when (p_x(9 downto 0) >= 352 and p_x(9 downto 0) < 368) 
+								-- and (p_y(9 downto 0)>= 368 and p_y(9 downto 0) <= 384)  else--r
+						-- --"01000101" when p_x(9 downto 5)= "01100" and p_y(9 downto 5)= "00100" else--
+						-- "00000000";
+	character_adr2 <= 	
+						"00110001" when (p_x(9 downto 4) = "001111")
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--1
+						"00000000" when (p_x(9 downto 4) = "010000") 
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--
+						"01010000" when (p_x(9 downto 4) = "010001")
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--P
+						"01101100" when (p_x(9 downto 4) = "010010") 
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--l
+						"01100001" when (p_x(9 downto 4) = "010011") 
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--a
+						"01111001" when (p_x(9 downto 4) = "010100") 
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--y
+						"01100101" when (p_x(9 downto 4) = "010101")
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--e
+						"01110010" when (p_x(9 downto 4) = "010110") 
+								and (p_y(9 downto 0)>= 160 and p_y(9 downto 0) <= 176)  else--r
+						--"01000101" when p_x(9 downto 5)= "01100" and p_y(9 downto 5)= "00100" else--
+						"00000000";
+	font_col2 <= p_x(3 downto 1);
+	font_row2 <= "000"	when (p_y(9 downto 0) >= 160 and p_y(9 downto 0)< 162) else
+				"001"   when (p_y(9 downto 0) >= 162 and p_y(9 downto 0)< 164) else
+				"010"	when (p_y(9 downto 0) >= 164 and p_y(9 downto 0)< 166) else
+				"011"	when (p_y(9 downto 0) >= 166 and p_y(9 downto 0)< 168) else
+				"100"	when (p_y(9 downto 0) >= 168 and p_y(9 downto 0)< 170) else
+				"101"	when (p_y(9 downto 0) >= 170 and p_y(9 downto 0)< 172) else
+				"110"	when (p_y(9 downto 0) >= 172 and p_y(9 downto 0)< 174) else
+				"111"	when (p_y(9 downto 0) >= 174 and p_y(9 downto 0)< 176) else
+				"---";	
+	char2_on <= '1' when (p_x(9 downto 4)>= 15 and p_x(9 downto 4)<= 22) 
+						and(p_y(9 downto 0)>= 160 and p_y(9 downto 0)<= 176) else 
+				'0';
+	
+						
+	character_adr3 <= 		
+						"00110010" when (p_x(9 downto 4) = "001111")
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--2
+						"00000000" when (p_x(9 downto 4) = "010000")
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--
+						"01010000" when (p_x(9 downto 4) = "010001")  
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--P
+						"01101100" when (p_x(9 downto 4) = "010010") 
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--l
+						"01100001" when (p_x(9 downto 4) = "010011")
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--a
+						"01111001" when (p_x(9 downto 4) = "010100") 
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--y
+						"01100101" when (p_x(9 downto 4) = "010101")  
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--e
+						"01110010" when (p_x(9 downto 4) = "010110")
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--r
+						"01110011" when (p_x(9 downto 4) = "010111") 
+								and (p_y(9 downto 0)>= 220 and p_y(9 downto 0) <= 236) else--s
+						"00000000";
+	font_col3 <= p_x(3 downto 1);
+	font_row3 <= "000"	when (p_y(9 downto 0) >= 220 and p_y(9 downto 0)< 222) else
+				"001"   when (p_y(9 downto 0) >= 222 and p_y(9 downto 0)< 224) else
+				"010"	when (p_y(9 downto 0) >= 224 and p_y(9 downto 0)< 226) else
+				"011"	when (p_y(9 downto 0) >= 226 and p_y(9 downto 0)< 228) else
+				"100"	when (p_y(9 downto 0) >= 228 and p_y(9 downto 0)< 220) else
+				"101"	when (p_y(9 downto 0) >= 230 and p_y(9 downto 0)< 232) else
+				"110"	when (p_y(9 downto 0) >= 232 and p_y(9 downto 0)< 234) else
+				"111"	when (p_y(9 downto 0) >= 234 and p_y(9 downto 0)< 236) else
+				"---";
+	char3_on <= '1' when (p_x(9 downto 4)>= 15 and p_x(9 downto 4)<= 23) 
+						and(p_y(9 downto 0)>= 220 and p_y(9 downto 0)<= 236) else 
+				'0';
+	
+	process(char1_on, char2_on, char3_on)
+		begin
+		if(char1_on = '1') then
+			font_row <= font_row1; font_col <= font_col1;
+			character_adr <= character_adr1;
+		elsif(char2_on = '1') then
+			font_row <= font_row2; font_col <= font_col2;
+			character_adr <= character_adr2;
+		elsif(char3_on = '1') then 
+			font_row <= font_row3; font_col <= font_col3;
+			character_adr <= character_adr3;
+		end if;
+	end process;
+	
+	process(btn_up, btn_down)
+		begin
+		if(btn_up = '1') then s1 <= "10";
+		elsif(btn_down = '1') then s1 <= "01";
+		end if;
+	end process;
+	
+	
+	intro_screen_rgb <= 	brick_rgb when intro_map(row, col) = 1 or (video_on = '1' and (char1_on = '1' or char2_on ='1' or char3_on = '1') and char_out = '1') else
+								grass_rgb when intro_map(row, col) = 2 and s1(0) = '1' else
+								grass_rgb when intro_map(row, col) = 3 and s1(1) = '1' else
+						"000000000000";
+--	intro_screen_on1<= btn_enter and s1(1);
+--	intro_screen_on2<= btn_enter and s1(0);
+	
+end structural;
+		

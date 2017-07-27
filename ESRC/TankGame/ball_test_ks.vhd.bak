@@ -1,0 +1,86 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity ball_test is
+port (
+	clock_50          : in std_logic;
+	PS2_DAT           : in std_logic;
+	PS2_CLK           : in std_logic;
+	key               : in std_logic_vector (3 downto 0);
+	sw                : in std_logic_vector (8 downto 0);
+	vga_hs,vga_vs     : out std_logic;
+	LEDG              : out std_logic_vector(5 downto 2);
+	LEDR              : out std_logic_vector(5 downto 0);
+	vga_r,vga_g,vga_b : out std_logic_vector (3 downto 0)
+);
+end ball_test;
+
+architecture behavior of ball_test is
+signal btn               : std_logic_vector (1 downto 0);	
+signal video_on          : std_logic;
+signal refr_tick         : std_logic;
+signal pixel_x,pixel_y   : std_logic_vector (9 downto 0);
+signal vga_rgb           : std_logic_vector (2 downto 0);
+signal col               : integer range 0 to 31;
+signal row               : integer range 0 to 23;
+signal ball_on,maps_on   : std_logic;
+signal ball_rgb,maps_rgb : std_logic_vector (2 downto 0);
+signal tank_on				 : std_logic;
+signal tank_rgb			 : std_logic_vector (2 downto 0);
+
+begin
+	keyboard: entity work.ps2kb 
+		port map (
+			ps2c => PS2_CLK,
+			ps2d => ps2_dat,
+			clk => clock_50,
+			btnp1(5 downto 2) => ledg,
+			btnp1(1 downto 0) => btn,
+			btnp2 => ledr
+		);
+	vga_sync: entity work.vga_sync
+		port map (
+			clock_50,'0',vga_hs,vga_vs,video_on,open,refr_tick,pixel_x,pixel_y,col,row
+		);
+	ball: entity work.ball
+		port map (
+			btn,clock_50,'0',refr_tick,video_on,pixel_x,pixel_y,ball_on,ball_rgb
+		);
+	
+	maps: entity work.maps
+		port map (
+			maps_on,maps_rgb,col,row
+		);
+	move: entity work.move
+		port map (
+			b_up=>'0',b_down=>'0',b_left=>'0',b_right=>'0',clk_50=>clock_50,tank_on=>tank_on,tank_rgb=>tank_rgb,clk =>refr_tick
+			);
+	
+	vga_rgb <= --	"110" when (pixel_x < "0000011000" or pixel_x > "1001111000" or pixel_y < "0000011000" or pixel_y < "011011000") else
+			--	ball_rgb when ball_on = '1' else
+				
+				
+				maps_rgb when maps_on = '1' else
+				tank_rgb when tank_on = '1' else
+			"010";
+			--	"001";
+ 
+	
+	
+	process (clock_50)
+	begin
+	if (clock_50'event and clock_50 = '1') then
+		if (video_on = '1') then
+			vga_r<= vga_rgb(2) & vga_rgb(2) & vga_rgb(2) & vga_rgb(2);
+			vga_g<= vga_rgb(1) & vga_rgb(1) & vga_rgb(1) & vga_rgb(1);
+			vga_b<= vga_rgb(0) & vga_rgb(0) & vga_rgb(0) & vga_rgb(0);
+
+		else 
+			vga_r<= "0000" ;
+			vga_g<= "0000" ;
+			vga_b<= "0000" ;
+		end if;
+	end if;
+	end process;
+end behavior;

@@ -1,0 +1,79 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ball is
+port (
+	
+	--p_tick: in std_logic;
+	btns: in std_logic_vector (3 downto 0);
+	clk,reset: in std_logic;
+    refr_tick: in std_logic;
+	video_on: in std_logic;
+	pixel_x,pixel_y: in std_logic_vector (9 downto 0);
+	vga_rgb: out std_logic_vector (2 downto 0)
+
+);
+end ball;
+
+architecture behavior of ball is
+constants ball_l: integer := 401;
+constants ball_r: integer := 392;
+constants ball_t: integer := 301;
+constants ball_b: integer := 308;
+constants ball_size: integer:=8;
+type  rom_type  is  array  (0 to 7) of std_logic_vector(0 to 7); 
+-- ROM  definition 
+constant BALL_ROM:  rom_type  := 
+
+"00111100",  --  **** 
+"01111110",  -- ****** 
+"11111111", -- ******** 
+"11111111", -- ******** 
+"11111111", -- ******** 
+"11111111", -- ******** 
+"01111110", --  ****** 
+"00111100 "  --  **** 
+); 
+signal ball_t_n,ball_t_r: std_logic_vector (9 downto 0);
+signal ball_l_n,ball_l_r: std_logic_vector (9 downto 0);
+signal sq_ball_on,ball_on: std_logic;
+begin
+	process (clk,reset)
+	begin
+		if (reset = '1') then
+			ball_t_r <= "0000000100";
+			ball_l_r <= "0000000100"
+		elsif clk'event and clk='1' then
+			ball_t_r <= ball_t_n;
+			ball_l_r <= ball_l_n;
+		end if;
+	end process;
+
+	sq_ball_on <= '1' when  (unsigned(pixel_y) <= (ball_t_r + ball_size)) and
+							(unsigned(pixel_y) >= ball_t_r ) and
+							(unsigned(pixel_x) <= (ball_l_r + ball_size)) and
+							(unsigned(pixel_x) >= ball_l_r);
+				else '0';
+	ball_on <= '1' when sq_ball_on = '1' and ball_rom ((unsigned(pixel_x(2 downto 0) - ball_l_r(2 downto 0)))(unsigned(pixel_y(2 downto 0) - ball_t_r(2 downto 0)))) = '1';
+				else '0';
+	process (refr_tick,ball_t_r,ball_l_r,btns)
+	begin
+		if refr_tick'event and refr_tick = '1' then
+			if (btns(1) = '1' and unsigned(ball_t_r) > ball_size  ) then ball_t_n <= ball_t_r - ball_size;
+			elsif (btns(0) = '1' and unsigned(ball_t_r) + ball_size < 479  ) then ball_t_n <= ball_t_r + ball_size;
+			end if;
+		end if;
+	end process;
+	
+	vga_rgb <= '000' when video_on = '0' else
+		<= '011' when sq_ball_on = '1' else
+		<= '001';
+end behavior;
+
+
+
+
+
+
+
+

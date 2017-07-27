@@ -1,0 +1,25 @@
+library  ieee; 
+use ieee.std_logic_1164. all ; 
+use ieee.std_logic_unsigned. all ; 
+use ieee.std_logic_arith.all;
+
+entity clk7hz is 
+		port( 	clock_50				: in  std_logic; 
+				clk7hz				: out std_logic); 
+end clk7hz ; 
+
+architecture b of clk7hz is
+signal	clk_7hz: std_logic;
+begin
+
+process(clock_50)
+variable		cnt:integer:=0;
+	begin
+		if rising_edge(clock_50) then 	cnt := cnt + 1;
+			if cnt = 12500333 then 	cnt:=0;
+									clk_7HZ <=not clk_7HZ;
+			end if;
+		end if;
+		clk7hz <= clk_7HZ;
+end process;
+end b;	

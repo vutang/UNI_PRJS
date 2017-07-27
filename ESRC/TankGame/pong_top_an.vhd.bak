@@ -1,0 +1,41 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+ENTITY pong_top_an IS
+	PORT(
+		clock_50,reset: IN STD_LOGIC;
+		KEY: IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+		VGA_HS,VGA_VS: OUT STD_LOGIC;
+		VGA_R,VGA_B,VGA_G: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	   );
+END pong_top_an;
+
+ARCHITECTURE arch OF pong_top_an IS
+	SIGNAL pixel_x,pixel_y: STD_LOGIC_VECTOR( 9 DOWNTO 0);
+	SIGNAL video_on,pixel_tick: STD_LOGIC;
+	SIGNAL rgb_reg, rgb_next: STD_LOGIC_VECTOR(11 DOWNTO 0);
+BEGIN
+	-- instantiate VGA sync
+	vga_sync_unit: ENTITY WORK.vga_sync
+		PORT MAP(clock_50=>clock_50,reset=>reset,
+					video_on=>video_on, p_tick=>pixel_tick,
+					hsync=>vga_hs, vsync=>vga_vs,
+					pixel_x=>pixel_x,pixel_y=>pixel_y);
+	-- instantiate graphic generator
+	pong_graph_an_unit: ENTITY WORK.pong_graph_animate
+		PORT MAP(clock_50=>clock_50, reset=>reset,
+					btn=>KEY, video_on=>video_on,
+					pixel_x=>pixel_x, pixel_y=>pixel_y,
+					graph_rgb=>rgb_next);
+	-- rgb buffer
+	PROCESS(clock_50)
+	BEGIN
+		IF(clock_50'event AND clock_50='1') THEN
+			IF( pixel_tick='1') THEN
+				rgb_reg <= rgb_next;
+			END IF;
+		END IF;
+	END PROCESS;
+	VGA_R <= rgb_reg(11 DOWNTO 8);
+	VGA_G <= rgb_reg(7 DOWNTO 4);
+	VGA_B <= rgb_reg(3 DOWNTO 0);
+END arch;

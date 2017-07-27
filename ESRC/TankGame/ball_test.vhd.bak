@@ -1,0 +1,50 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ball_test is
+port (
+	clock_50: in std_logic;
+	PS2_DAT: in std_logic;
+	PS2_CLK: in std_logic;
+	key: in std_logic_vector (1 downto 0);
+	sw: in std_logic_vector (8 downto 0);
+	vga_hs,vga_vs: out std_logic;
+	LEDG: out std_logic_vector(5 downto 2);
+	LEDR: out std_logic_vector(5 downto 0);
+	vga_r,vga_g,vga_b: out std_logic_vector (3 downto 0)
+);
+end ball_test;
+
+architecture behavior of ball_test is
+signal btn: std_logic_vector (1 downto 0);	
+signal 	video_on: std_logic;
+signal pixel_x,pixel_y,refr _tick: std_logic;
+signal vga_rgb: std_logic_vector (2 downto 0);
+	keyboard: entity work.ps2kb 
+		port map (
+			PS2_CLK,ps2_dat,clock_50,btnp1(5 downto 2) => ledg,btnp1(1 downto 0) => btn,ledr
+		);
+	vga_sync: entity work.vga_sync
+		port map (
+			clock_50,sw(8),vga_hs,vga_vs,video_on,open,refr_tick,pixel_x,pixel_y
+		);
+	ball: entity work.ball
+		port map (
+			btn,clock_50,sw(8),refr_tick,video_on,pixel_x,pixel_y,vga_rgb
+		);
+	process (clock_50)
+	begin
+	if (clock_50'event and clock_50 = '1') then
+		if (video_on = '1') then
+			vga_r<= vga_rgb(2) % vga_rgb(2) % vga_rgb(2) % vga_rgb(2);
+			vga_g<= vga_rgb(1) % vga_rgb(1) % vga_rgb(1) % vga_rgb(1);
+			vga_b<= vga_rgb(0) % vga_rgb(0) % vga_rgb(0) % vga_rgb(0);
+
+		else 
+			vga_r<= "0000" ;
+			vga_g<= "0000" ;
+			vga_b<= "0000" ;
+		end if;
+	end if;
+	end process;
+end behavior;

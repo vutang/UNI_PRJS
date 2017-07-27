@@ -1,0 +1,51 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity maps is
+	port (
+--		map_select      : in integer range 1 to 3;
+		maps_on         : out std_logic;
+		maps_rgb        : out std_logic_vector (2 downto 0);
+		col             : in integer range 0 to 20;
+		row             : in integer range 0 to 15
+	);
+end maps;
+
+architecture behavior of maps is
+
+type obs_id is integer 0 to 3;
+type maps_type is array (0 to 14,0 to 19) of obs_id;
+--signal: map_select map_type;
+constant maps_1 : maps_type := 
+	(
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+		(0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+		(0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+		(0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0),
+		(0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0),
+		(0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0),
+		(0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0),
+		(0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0),
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0),
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0),
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0),
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0),
+		(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0)
+	);
+begin
+	maps_on <= '1' when maps_1(row)(col) > 0;
+	maps_rgb <= "010" when maps_1(row)(col) = 1 else
+			   "011" when maps_1(row)(col) = 2 else
+			   "101" when maps_1(row)(col) = 3 else
+			   "000";
+end behavior;	
+	
+	
+	
+	
+	
+	
+	
+	

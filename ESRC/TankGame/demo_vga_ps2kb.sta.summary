@@ -1,0 +1,517 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clock_50'
+Slack : -39.151
+TNS   : -8144.354
+
+Type  : Slow Model Setup 'maps:maps_com|bullet:bullet_t2|b_clk'
+Slack : -28.592
+TNS   : -1063.332
+
+Type  : Slow Model Setup 'maps:maps_com|bullet:bullet_t1|b_clk'
+Slack : -27.687
+TNS   : -1043.337
+
+Type  : Slow Model Setup 'maps:maps_com|bullet:bullet_AI1|b_clk'
+Slack : -27.411
+TNS   : -852.740
+
+Type  : Slow Model Setup 'maps:maps_com|bullet:bullet_AI|b_clk'
+Slack : -25.947
+TNS   : -806.237
+
+Type  : Slow Model Setup 'maps:maps_com|bullet:bullet_AI2|b_clk'
+Slack : -24.613
+TNS   : -784.774
+
+Type  : Slow Model Setup 'vga_sync:vga_sync|h_count_reg[0]'
+Slack : -23.857
+TNS   : -8550.352
+
+Type  : Slow Model Setup 'vga_sync:vga_sync|h_count_reg[4]'
+Slack : -21.847
+TNS   : -7322.407
+
+Type  : Slow Model Setup 'vga_sync:vga_sync|mod2_reg'
+Slack : -9.672
+TNS   : -250.210
+
+Type  : Slow Model Setup 'maps_com|audio|PLL|altpll_component|pll|clk[0]'
+Slack : -6.063
+TNS   : -335.490
+
+Type  : Slow Model Setup 'maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|mI2C_CTRL_CLK'
+Slack : -4.610
+TNS   : -142.201
+
+Type  : Slow Model Setup 'maps:maps_com|test_random:test_random|clk7hz:clock_7hz|clk_7hz'
+Slack : -2.634
+TNS   : -3.488
+
+Type  : Slow Model Setup 'ps2kb:keyboard|ps2clk'
+Slack : -2.604
+TNS   : -73.954
+
+Type  : Slow Model Setup 'maps:maps_com|item_fsm:item|clk_1s'
+Slack : -2.399
+TNS   : -13.727
+
+Type  : Slow Model Setup 'maps:maps_com|item_fsm:item|clk_y'
+Slack : -1.454
+TNS   : -9.239
+
+Type  : Slow Model Setup 'maps:maps_com|item_fsm:item|clk_x'
+Slack : -1.142
+TNS   : -6.892
+
+Type  : Slow Model Setup 'ps2kb:keyboard|b_enter'
+Slack : -1.130
+TNS   : -6.030
+
+Type  : Slow Model Setup 'ps2kb:keyboard|ps2rc'
+Slack : -1.046
+TNS   : -5.834
+
+Type  : Slow Model Setup 'maps:maps_com|test_random:test_random|clk5hz:clock_5hz|clk_5hz'
+Slack : -0.813
+TNS   : -2.230
+
+Type  : Slow Model Setup 'maps:maps_com|test_random:test_random|clk1s_gen:clock_1hz|clk1HZ'
+Slack : -0.501
+TNS   : -0.713
+
+Type  : Slow Model Hold 'vga_sync:vga_sync|h_count_reg[4]'
+Slack : -9.614
+TNS   : -1711.939
+
+Type  : Slow Model Hold 'vga_sync:vga_sync|h_count_reg[0]'
+Slack : -6.627
+TNS   : -415.136
+
+Type  : Slow Model Hold 'ps2kb:keyboard|ps2rc'
+Slack : -5.286
+TNS   : -21.284
+
+Type  : Slow Model Hold 'clock_50'
+Slack : -2.703
+TNS   : -252.576
+
+Type  : Slow Model Hold 'maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|mI2C_CTRL_CLK'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|bullet:bullet_AI1|b_clk'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|bullet:bullet_AI2|b_clk'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|bullet:bullet_AI|b_clk'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|bullet:bullet_t1|b_clk'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|bullet:bullet_t2|b_clk'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps_com|audio|PLL|altpll_component|pll|clk[0]'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ps2kb:keyboard|ps2clk'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|test_random:test_random|clk5hz:clock_5hz|clk_5hz'
+Slack : 0.612
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|test_random:test_random|clk7hz:clock_7hz|clk_7hz'
+Slack : 0.612
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|item_fsm:item|clk_1s'
+Slack : 0.622
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|item_fsm:item|clk_y'
+Slack : 0.623
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|test_random:test_random|clk1s_gen:clock_1hz|clk1HZ'
+Slack : 0.623
+TNS   : 0.000
+
+Type  : Slow Model Hold 'maps:maps_com|item_fsm:item|clk_x'
+Slack : 0.625
+TNS   : 0.000
+
+Type  : Slow Model Hold 'vga_sync:vga_sync|mod2_reg'
+Slack : 0.670
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ps2kb:keyboard|b_enter'
+Slack : 0.816
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'vga_sync:vga_sync|mod2_reg'
+Slack : -6.848
+TNS   : -108.360
+
+Type  : Slow Model Recovery 'clock_50'
+Slack : 17.687
+TNS   : 0.000
+
+Type  : Slow Model Removal 'clock_50'
+Slack : 1.187
+TNS   : 0.000
+
+Type  : Slow Model Removal 'vga_sync:vga_sync|mod2_reg'
+Slack : 7.310
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|mI2C_CTRL_CLK'
+Slack : -1.814
+TNS   : -74.276
+
+Type  : Slow Model Minimum Pulse Width 'vga_sync:vga_sync|h_count_reg[4]'
+Slack : -0.993
+TNS   : -957.564
+
+Type  : Slow Model Minimum Pulse Width 'vga_sync:vga_sync|h_count_reg[0]'
+Slack : -0.611
+TNS   : -844.402
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_t1|b_clk'
+Slack : -0.611
+TNS   : -61.100
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_t2|b_clk'
+Slack : -0.611
+TNS   : -61.100
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_AI1|b_clk'
+Slack : -0.611
+TNS   : -50.102
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_AI2|b_clk'
+Slack : -0.611
+TNS   : -50.102
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_AI|b_clk'
+Slack : -0.611
+TNS   : -50.102
+
+Type  : Slow Model Minimum Pulse Width 'vga_sync:vga_sync|mod2_reg'
+Slack : -0.611
+TNS   : -50.102
+
+Type  : Slow Model Minimum Pulse Width 'ps2kb:keyboard|ps2clk'
+Slack : -0.611
+TNS   : -45.214
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|item_fsm:item|clk_1s'
+Slack : -0.611
+TNS   : -17.108
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|item_fsm:item|clk_x'
+Slack : -0.611
+TNS   : -17.108
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|item_fsm:item|clk_y'
+Slack : -0.611
+TNS   : -17.108
+
+Type  : Slow Model Minimum Pulse Width 'ps2kb:keyboard|ps2rc'
+Slack : -0.611
+TNS   : -17.108
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|test_random:test_random|clk1s_gen:clock_1hz|clk1HZ'
+Slack : -0.611
+TNS   : -7.332
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|test_random:test_random|clk5hz:clock_5hz|clk_5hz'
+Slack : -0.611
+TNS   : -7.332
+
+Type  : Slow Model Minimum Pulse Width 'maps:maps_com|test_random:test_random|clk7hz:clock_7hz|clk_7hz'
+Slack : -0.611
+TNS   : -7.332
+
+Type  : Slow Model Minimum Pulse Width 'ps2kb:keyboard|b_enter'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clock_50'
+Slack : 7.436
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'maps_com|audio|PLL|altpll_component|pll|clk[0]'
+Slack : 26.031
+TNS   : 0.000
+
+Type  : Fast Model Setup 'clock_50'
+Slack : -13.352
+TNS   : -2600.071
+
+Type  : Fast Model Setup 'maps:maps_com|bullet:bullet_t2|b_clk'
+Slack : -10.788
+TNS   : -401.806
+
+Type  : Fast Model Setup 'maps:maps_com|bullet:bullet_t1|b_clk'
+Slack : -10.299
+TNS   : -390.572
+
+Type  : Fast Model Setup 'maps:maps_com|bullet:bullet_AI1|b_clk'
+Slack : -10.292
+TNS   : -321.088
+
+Type  : Fast Model Setup 'maps:maps_com|bullet:bullet_AI|b_clk'
+Slack : -9.727
+TNS   : -301.627
+
+Type  : Fast Model Setup 'maps:maps_com|bullet:bullet_AI2|b_clk'
+Slack : -9.394
+TNS   : -299.491
+
+Type  : Fast Model Setup 'vga_sync:vga_sync|h_count_reg[0]'
+Slack : -8.353
+TNS   : -2961.942
+
+Type  : Fast Model Setup 'vga_sync:vga_sync|h_count_reg[4]'
+Slack : -7.571
+TNS   : -2484.941
+
+Type  : Fast Model Setup 'vga_sync:vga_sync|mod2_reg'
+Slack : -3.168
+TNS   : -71.678
+
+Type  : Fast Model Setup 'maps_com|audio|PLL|altpll_component|pll|clk[0]'
+Slack : -1.623
+TNS   : -66.063
+
+Type  : Fast Model Setup 'maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|mI2C_CTRL_CLK'
+Slack : -1.170
+TNS   : -28.504
+
+Type  : Fast Model Setup 'ps2kb:keyboard|b_enter'
+Slack : -0.693
+TNS   : -2.020
+
+Type  : Fast Model Setup 'maps:maps_com|test_random:test_random|clk7hz:clock_7hz|clk_7hz'
+Slack : -0.491
+TNS   : -0.491
+
+Type  : Fast Model Setup 'ps2kb:keyboard|ps2clk'
+Slack : -0.443
+TNS   : -9.225
+
+Type  : Fast Model Setup 'maps:maps_com|item_fsm:item|clk_1s'
+Slack : -0.404
+TNS   : -2.020
+
+Type  : Fast Model Setup 'maps:maps_com|item_fsm:item|clk_y'
+Slack : -0.030
+TNS   : -0.150
+
+Type  : Fast Model Setup 'maps:maps_com|item_fsm:item|clk_x'
+Slack : 0.086
+TNS   : 0.000
+
+Type  : Fast Model Setup 'maps:maps_com|test_random:test_random|clk5hz:clock_5hz|clk_5hz'
+Slack : 0.263
+TNS   : 0.000
+
+Type  : Fast Model Setup 'ps2kb:keyboard|ps2rc'
+Slack : 0.335
+TNS   : 0.000
+
+Type  : Fast Model Setup 'maps:maps_com|test_random:test_random|clk1s_gen:clock_1hz|clk1HZ'
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Fast Model Hold 'vga_sync:vga_sync|h_count_reg[4]'
+Slack : -4.226
+TNS   : -845.641
+
+Type  : Fast Model Hold 'vga_sync:vga_sync|h_count_reg[0]'
+Slack : -3.233
+TNS   : -328.282
+
+Type  : Fast Model Hold 'ps2kb:keyboard|ps2rc'
+Slack : -2.664
+TNS   : -9.709
+
+Type  : Fast Model Hold 'clock_50'
+Slack : -1.809
+TNS   : -307.401
+
+Type  : Fast Model Hold 'maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|mI2C_CTRL_CLK'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|bullet:bullet_AI1|b_clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|bullet:bullet_AI2|b_clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|bullet:bullet_AI|b_clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|bullet:bullet_t1|b_clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|bullet:bullet_t2|b_clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps_com|audio|PLL|altpll_component|pll|clk[0]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ps2kb:keyboard|ps2clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|test_random:test_random|clk5hz:clock_5hz|clk_5hz'
+Slack : 0.236
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|test_random:test_random|clk7hz:clock_7hz|clk_7hz'
+Slack : 0.237
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|item_fsm:item|clk_1s'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|test_random:test_random|clk1s_gen:clock_1hz|clk1HZ'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|item_fsm:item|clk_y'
+Slack : 0.243
+TNS   : 0.000
+
+Type  : Fast Model Hold 'maps:maps_com|item_fsm:item|clk_x'
+Slack : 0.245
+TNS   : 0.000
+
+Type  : Fast Model Hold 'vga_sync:vga_sync|mod2_reg'
+Slack : 0.267
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ps2kb:keyboard|b_enter'
+Slack : 0.282
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'vga_sync:vga_sync|mod2_reg'
+Slack : -2.691
+TNS   : -42.324
+
+Type  : Fast Model Recovery 'clock_50'
+Slack : 18.961
+TNS   : 0.000
+
+Type  : Fast Model Removal 'clock_50'
+Slack : 0.590
+TNS   : 0.000
+
+Type  : Fast Model Removal 'vga_sync:vga_sync|mod2_reg'
+Slack : 3.438
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|mI2C_CTRL_CLK'
+Slack : -1.423
+TNS   : -59.922
+
+Type  : Fast Model Minimum Pulse Width 'vga_sync:vga_sync|h_count_reg[4]'
+Slack : -0.500
+TNS   : -693.610
+
+Type  : Fast Model Minimum Pulse Width 'vga_sync:vga_sync|h_count_reg[0]'
+Slack : -0.500
+TNS   : -691.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_t1|b_clk'
+Slack : -0.500
+TNS   : -50.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_t2|b_clk'
+Slack : -0.500
+TNS   : -50.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_AI1|b_clk'
+Slack : -0.500
+TNS   : -41.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_AI2|b_clk'
+Slack : -0.500
+TNS   : -41.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|bullet:bullet_AI|b_clk'
+Slack : -0.500
+TNS   : -41.000
+
+Type  : Fast Model Minimum Pulse Width 'vga_sync:vga_sync|mod2_reg'
+Slack : -0.500
+TNS   : -41.000
+
+Type  : Fast Model Minimum Pulse Width 'ps2kb:keyboard|ps2clk'
+Slack : -0.500
+TNS   : -37.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|item_fsm:item|clk_1s'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|item_fsm:item|clk_x'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|item_fsm:item|clk_y'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'ps2kb:keyboard|ps2rc'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|test_random:test_random|clk1s_gen:clock_1hz|clk1HZ'
+Slack : -0.500
+TNS   : -6.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|test_random:test_random|clk5hz:clock_5hz|clk_5hz'
+Slack : -0.500
+TNS   : -6.000
+
+Type  : Fast Model Minimum Pulse Width 'maps:maps_com|test_random:test_random|clk7hz:clock_7hz|clk_7hz'
+Slack : -0.500
+TNS   : -6.000
+
+Type  : Fast Model Minimum Pulse Width 'ps2kb:keyboard|b_enter'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clock_50'
+Slack : 7.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'maps_com|audio|PLL|altpll_component|pll|clk[0]'
+Slack : 26.142
+TNS   : 0.000
+
+------------------------------------------------------------

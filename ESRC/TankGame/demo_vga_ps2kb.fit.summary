@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Aug 09 23:12:48 2013
+Quartus II 64-Bit Version : 10.1 Build 197 01/19/2011 SP 1 SJ Full Version
+Revision Name : demo_vga_ps2kb
+Top-level Entity Name : tank_game
+Family : Cyclone II
+Device : EP2C20F484C7
+Timing Models : Final
+Total logic elements : 15,457 / 18,752 ( 82 % )
+    Total combinational functions : 15,352 / 18,752 ( 82 % )
+    Dedicated logic registers : 1,851 / 18,752 ( 10 % )
+Total registers : 1851
+Total pins : 48 / 315 ( 15 % )
+Total virtual pins : 0
+Total memory bits : 196,672 / 239,616 ( 82 % )
+Embedded Multiplier 9-bit elements : 0 / 52 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )

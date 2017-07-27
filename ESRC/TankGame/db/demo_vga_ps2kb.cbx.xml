@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="demo_vga_ps2kb">
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|grass_rom:grass|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_t171.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|iron_rom:iron|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_lu61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|life_rom:life|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_tt61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_cem.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|AI:AI|ai_lf_rom:tank_lf_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_np12.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_6so.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div3" CBX_FILE_NAME="lpm_divide_cem.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|stone_rom:stone|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_6271.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|gameover_screen:gameover|iron_rom:iron|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_lu61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|AI:AI|fz_rom:freeze|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_tn61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|audio_driver:audio|de2_wm8731_audio:audio|shoot_sound_rom:audio_shooted|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_dp71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div4" CBX_FILE_NAME="lpm_divide_6so.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|tank_lr_rom:tank_lr_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_r022.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|tank_ud_rom:tank_ud_rom2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_lq12.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|vga_sync:vga_sync|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_bem.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|b_center_rom:bullet_rgb|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_va71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div5" CBX_FILE_NAME="lpm_divide_cem.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|star_rom:star|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_nu61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|vga_sync:vga_sync|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_bem.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|AI:AI|buzz_rom:buzz_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8v61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|audio_driver:audio|de2_wm8731_audio:audio|item_sound_rom:item_sound|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_nl71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|b_center_rom:bullet_AI_rgb|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_va71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div6" CBX_FILE_NAME="lpm_divide_6so.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|tank_lr_rom:tank_lr_rom2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_r022.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|start_screen:start|brick_rom:brick_rom_unit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8171.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|b_center_rom:bullet_AI1_rgb|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_va71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|b_center_rom:bullet_rgb2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_va71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|boss_rom:boss|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ku61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|brick_rom:brick|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8171.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div7" CBX_FILE_NAME="lpm_divide_cem.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|water_rom:water|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_0271.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|AI:AI|ai_ud_rom:tank_ud_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_hj12.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|b_center_rom:bullet_AI2_rgb|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_va71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_6so.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|start_screen:start|grass_rom:grass_rom_unit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_t171.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|victory_screen:victory|iron_rom:iron|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_lu61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|intro_screen:intro|brick_rom:brick_rom_unit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8171.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|audio_driver:audio|de2_i2c_av_config:i2c|altsyncram:WideOr15_rtl_0" CBX_FILE_NAME="altsyncram_2111.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|tank_game|maps:maps_com|tank_ud_rom:tank_ud_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_lq12.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
